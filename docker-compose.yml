@@ -1,0 +1,22 @@
+version: '2.1'
+
+volumes:
+
+  motion-data:
+    driver: local
+
+services:
+
+  motion:
+    build: .
+    image: sofwerx/motion
+    container_name: motion
+    hostname: motion
+    environment:
+      RTSP_URL: ${RTSP_URL}
+#    ports:
+#      - 8080:8080
+#      - 8081:8081
+    volumes:
+      - motion-data:/data
+
